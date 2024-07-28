@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { notFound } from "next/navigation";
 import React from "react";
 
 interface Params {
@@ -28,6 +29,7 @@ const UserDetailPage = ({ params: { id } }: Params) => {
   if (isLoading) return <div>Yuklanmoqda...</div>;
   if (error instanceof Error) return <div>Xato yuz berdi: {error.message}</div>;
 
+  if (+id > 10) notFound();
   return (
     <>
       <div>UserDetailPage {id}</div>

@@ -43,9 +43,6 @@ const UserTable = ({ sortOrder }: Props) => {
         sortOrder === "email" ? (user) => user.phone : (user) => user.username
       );
 
-  if (isLoading) return <Loading />;
-  if (error instanceof Error) return <div>Xato yuz berdi: {error.message}</div>;
-
   return (
     <>
       <table className="table table-bordered">
